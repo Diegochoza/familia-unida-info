@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Familia Unida | Sistema de Reportes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CONFIGURACIÓN DE COLORES --- */
+        :root {
+            --primary: #2e7d32;      /* Verde Institucional */
+            --accent: #00e676;       /* Verde Vibrante para detalles */
+            --dark: #121212;         /* Negro Profundo */
+            --dark-card: #1e1e1e;    /* Gris muy oscuro */
+            --light: #f4f4f4;        /* Fondo claro */
+            --white: #ffffff;        /* Blanco puro */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* --- ESTILOS DEL HEADER (MODERNO) --- */
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, #000000 100%);
+            color: var(--white);
+            padding: 60px 0 80px;
+            text-align: center;
+            border-bottom: 5px solid var(--primary);
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        header h1 span { color: var(--accent); }
+
+        header .subtitle {
+            font-size: 1rem;
+            color: #bbb;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            display: block;
+        }
+
+        /* Caja de "Empoderamiento" dentro del Header */
+        .intro-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.08);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            text-align: center;
+        }
+        .intro-box h2 {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+        .intro-box p {
+            color: #ddd;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        /* --- ESTILOS DEL CONTENIDO (LIMPIO) --- */
+        
+        .section {
+            background: var(--white);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        .section h3 {
+            color: var(--primary);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            font-size: 1.3em;
+        }
+
+        /* Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* Tarjetas de Categorías */
+        .cat-card {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 5px solid var(--accent);
+        }
+        .cat-card h4 { color: var(--dark); margin-bottom: 5px; }
+
+        /* Tarjetas de Alcance (Oscuras) */
+        .scope-card {
+            background: var(--dark-card);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            border-bottom: 4px solid var(--accent);
+        }
+        .scope-card h4 { color: var(--accent); margin-top: 0; margin-bottom: 10px; }
+        .scope-card p { font-size: 0.9em; color: #ccc; }
+
+        /* Lista de Impacto */
+        .custom-list { list-style: none; padding: 0; }
+        .custom-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .custom-list li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        /* Equipo */
+        .team-box {
+            text-align: center;
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .team-members span {
+            display: inline-block;
+            margin: 10px 15px;
+            padding: 8px 20px;
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            font-size: 0.95em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--dark);
+            color: #777;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .section { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Familia <span>Unida</span></h1>
+            <span class="subtitle">Sistema de Reportes Comunitarios</span>
+            
+            <div class="intro-box">
+                <h2>Empoderamiento Ciudadano</h2>
+                <p>Una solución tecnológica para reportar, visualizar y dar seguimiento a problemas comunitarios, fomentando la colaboración activa entre vecinos y autoridades.</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="section">
+            <h3>Contexto y Problemática</h3>
+            <p>Muchas comunidades sufren de una desconexión con sus autoridades locales. Según estudios del BID, hasta un <strong>92% de los delitos no son reportados formalmente</strong>. "Familia Unida" busca reducir esta "cifra negra" ofreciendo un canal accesible y centralizado para gestionar incidencias, eliminando el subregistro y la desinformación vecinal.</p>
+        </div>
+
+        <div class="section">
+            <h3>Impacto Esperado</h3>
+            <p>Con la implementación de este sistema, buscamos transformar la gestión comunitaria:</p>
+            <ul class="custom-list">
+                <li><strong>Visibilidad Real:</strong> Sacar a la luz problemas recurrentes que hoy pasan desapercibidos por falta de un canal formal.</li>
+                <li><strong>Colaboración:</strong> Crear un espacio donde el ciudadano deja de ser espectador y se convierte en un agente activo de cambio.</li>
+                <li><strong>Centralización:</strong> Evitar la dispersión de información en chats informales, concentrando todo en una base de datos segura.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Categorías de Reporte</h3>
+            <p style="margin-bottom: 20px;">El sistema permite clasificar incidencias en 5 áreas clave para la comunidad:</p>
+            <div class="grid-container">
+                <div class="cat-card"><h4>👮‍♂️ Seguridad Pública</h4><p>Reportes de crimen y vigilancia.</p></div>
+                <div class="cat-card"><h4>🐕 Maltrato Animal</h4><p>Atención a fauna urbana y mascotas.</p></div>
+                <div class="cat-card"><h4>🤝 Vulnerabilidad Social</h4><p>Apoyo a personas en situación de calle o riesgo.</p></div>
+                <div class="cat-card"><h4>🚑 Emergencias</h4><p>Situaciones de riesgo inmediato.</p></div>
+                <div class="cat-card"><h4>🌳 Medio Ambiente</h4><p>Saneamiento y cuidado ecológico.</p></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Alcance del Proyecto</h3>
+            <p style="margin-bottom: 20px;">La aplicación "Familia Unida" abarca las siguientes funcionalidades técnicas y operativas:</p>
+            <div class="grid-container">
+                <div class="scope-card">
+                    <h4>Gestión de Usuarios</h4>
+                    <p>Registro, inicio de sesión seguro y manejo de perfiles únicos.</p>
+                </div>
+                <div class="scope-card">
+                    <h4>Ciclo de Reportes</h4>
+                    <p>Creación, visualización, búsqueda y cambio de estatus (Pendiente a Resuelto).</p>
+                </div>
+                <div class="scope-card">
+                    <h4>Interacción Social</h4>
+                    <p>Sistema de comentarios integrado para retroalimentación comunitaria en cada reporte.</p>
+                </div>
+                <div class="scope-card">
+                    <h4>Evidencia Visual</h4>
+                    <p>Capacidad de adjuntar imágenes como prueba en los reportes generados.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>Objetivos del Proyecto</h3>
+            <div class="grid-container">
+                <div>
+                    <h4 style="color: var(--primary);"> Objetivo General</h4>
+                    <p>Desarrollar una aplicación de escritorio colaborativa en Java y SQL Server que sirva como prototipo funcional para la gestión de incidencias, estableciendo las bases para futuras mejoras.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--primary);">Objetivos Técnicos</h4>
+                    <ul class="custom-list">
+                        <li>Implementar un sistema CRUD completo utilizando el patrón DAO para el acceso a datos.</li>
+                        <li>Garantizar la integridad de la información mediante una base de datos relacional SQL Server.</li>
+                        <li>Diseñar una interfaz gráfica intuitiva utilizando la librería Java Swing.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-box">
+            <h3 style="color: var(--accent); border:none; margin-bottom: 20px;">EQUIPO DE DESARROLLO</h3>
+            <div class="team-members">
+                <span>Natalia  Loza Arredondo</span>
+                <span>Diego Miguel Choza Suárez</span>
+                <span>Carolina López Parra</span>
+            </div>
+            <p style="margin-top: 30px; color: #aaa; font-size: 0.9em;">
+                Institución: UNIVA Universidad del Valle de Atemajac<br>
+                Curso: Diseño Orientado a Objetos - Noviembre 2025
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Proyecto Familia Unida. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
