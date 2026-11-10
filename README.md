@@ -1,26 +1,15 @@
-#  Familia Unida
+# Familia Unida · página informativa
 
-**Sistema de Reportes Comunitarios** diseñado para conectar a los vecinos con las soluciones, permitiendo reportar incidencias de manera organizada y colaborativa.
+Página de una sola hoja que explica qué es **Familia Unida**, cómo funciona y cómo está hecha. Es la que se enlaza desde la lona del stand de FECIJAL 2026.
 
----
+- **App:** https://main.d1tsolh0f84giv.amplifyapp.com
+- **Proyecto:** Plataforma web georreferenciada para el reporte, seguimiento y validación comunitaria de problemas urbanos en Guadalajara y Zapopan (FECIJAL 2026, Sistemas Informáticos).
 
-### Descripción
-Aplicación de escritorio desarrollada en **Java** que permite gestionar reportes ciudadanos en 5 categorías: Seguridad, Maltrato Animal, Vulnerabilidad Social, Emergencias y Medio Ambiente. Busca reducir la "cifra negra" de delitos no reportados y centralizar la información comunitaria.
+Todo está en `index.html` (HTML y CSS, sin dependencias). Usa la misma identidad visual que la app: verde pino `#37554C`, lima `#E9FD81`, tipografías Archivo y Permanent Marker.
 
-### Funcionalidades Principales
-* **Gestión de Usuarios:** Registro y Login seguro.
-* **Reportes Completos:** Título, descripción, ubicación y **evidencia visual (fotos)**.
-* **Interacción:** Sistema de comentarios en cada reporte.
-* **Estatus:** Seguimiento del ciclo de vida del reporte (Pendiente -> Resuelto).
+> La versión anterior (prototipo de escritorio en Java + SQL Server, 2025) queda en el historial de Git.
 
-###  Tecnologías
-* **Lenguaje:** Java (JDK 17)
-* **GUI:** Java Swing
-* **Base de Datos:** SQL Server
-* **Arquitectura:** MVC + DAO
-
-### Equipo de Desarrollo
-Proyecto para la materia de **Diseño Orientado a Objetos** - **UNIVA**:
-* Natalia Loza Arredondo
-* Diego Miguel Choza Suárez
-* Carolina López Parra 
+## Equipo
+- Diego Miguel Choza Suárez
+- Natalia Giselle Loza Arredondo
+- Carolina López Parra

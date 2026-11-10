@@ -1,293 +1,328 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Familia Unida | Sistema de Reportes</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- CONFIGURACIÓN DE COLORES --- */
-        :root {
-            --primary: #2e7d32;      /* Verde Institucional */
-            --accent: #00e676;       /* Verde Vibrante para detalles */
-            --dark: #121212;         /* Negro Profundo */
-            --dark-card: #1e1e1e;    /* Gris muy oscuro */
-            --light: #f4f4f4;        /* Fondo claro */
-            --white: #ffffff;        /* Blanco puro */
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Familia Unida | Cómo funciona</title>
+<meta name="description" content="Plataforma web georreferenciada para reportar, dar seguimiento y validar en comunidad los problemas urbanos de Guadalajara y Zapopan.">
+<meta name="theme-color" content="#37554c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+:root{
+  --papel:#f3f5f2; --pino:#37554c; --pino-oscuro:#1e302a; --lima:#e9fd81;
+  --muted:#4a5b54; --linea:#dce3de; --linea-fuerte:#c9d3cd; --sobre-pino:#dce6df; --arco:#5c7a5e;
+  --abierto:#2563eb; --canalizado:#475569; --atencion:#b45309; --atendido:#0e7490; --resuelto:#15803d; --reabierto:#dc2626;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--papel);color:var(--pino-oscuro);font-family:Archivo,system-ui,sans-serif;font-size:17px;line-height:1.5}
+a{color:var(--pino)}
+:where(a,button):focus-visible{outline:3px solid var(--pino);outline-offset:3px}
+.verde :where(a,button):focus-visible{outline-color:var(--lima)}
+.envoltura{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.01em}
+h2{font-size:clamp(30px,5vw,44px);font-weight:900;font-stretch:112%}
+h3{font-size:20px;font-weight:800}
+p{margin:0}
+.plumon{display:inline-block;font-family:"Permanent Marker",cursive;background:var(--lima);color:var(--pino-oscuro);line-height:1.1;padding:.3em .55em .15em;transform:rotate(-3deg)}
+.diamante{display:inline-block;width:12px;height:12px;background:var(--lima);border:2px solid var(--pino-oscuro);transform:rotate(45deg);flex:none}
+.boton{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 24px;border-radius:16px;font-weight:800;font-size:18px;text-decoration:none}
+.boton-lima{background:var(--lima);color:var(--pino-oscuro);box-shadow:inset 0 -3px 0 rgba(30,48,42,.18)}
+.boton-borde{border:2px solid currentColor;color:var(--papel)}
+.arcos{position:absolute;pointer-events:none}
+.arcos circle{fill:none;stroke:currentColor;stroke-width:10}
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: #333;
-            background-color: var(--light);
-        }
+/* Encabezado */
+.barra{background:var(--pino);color:var(--papel)}
+.barra .envoltura{height:64px;display:flex;align-items:center;justify-content:space-between}
+.marca{display:flex;align-items:center;gap:6px;text-decoration:none;color:var(--papel)}
+.marca b{font-weight:900;font-stretch:118%;font-size:23px}
+.marca span{font-family:"Permanent Marker",cursive;background:var(--lima);color:var(--pino-oscuro);font-size:17px;line-height:1;padding:5px 8px 3px;transform:rotate(-4deg)}
+.barra nav a{color:var(--papel);font-weight:700;text-decoration:none;font-size:15px;display:inline-flex;min-height:44px;align-items:center}
 
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-        }
+/* Portada */
+.portada{position:relative;overflow:hidden;background:var(--pino);color:var(--papel);padding:40px 0 64px}
+.portada .arcos{right:-180px;top:-120px;width:560px;height:560px;color:var(--arco)}
+.portada .envoltura{position:relative;display:grid;gap:28px}
+.portada h1{font-size:clamp(46px,10vw,104px);font-weight:900;font-stretch:118%;line-height:.95}
+.portada .bajada{font-size:clamp(18px,2.4vw,22px);color:var(--sobre-pino);max-width:640px}
+.acciones{display:flex;flex-wrap:wrap;gap:12px}
+.datos-portada{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:15px;color:var(--sobre-pino)}
+.datos-portada strong{color:var(--papel)}
 
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-        }
+/* Secciones */
+section.bloque{padding:64px 0}
+.encabezado-bloque{display:grid;gap:12px;margin-bottom:32px;max-width:720px}
+.encabezado-bloque p{color:var(--muted);font-size:18px}
+.etiqueta{font-size:14px;font-weight:800;color:var(--pino)}
 
-        /* --- ESTILOS DEL HEADER (MODERNO) --- */
-        header {
-            background: linear-gradient(135deg, var(--dark) 0%, #000000 100%);
-            color: var(--white);
-            padding: 60px 0 80px;
-            text-align: center;
-            border-bottom: 5px solid var(--primary);
-            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
-            margin-bottom: 40px;
-        }
+/* Problema */
+.problemas{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.problema{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:20px;display:grid;gap:8px}
+.problema .num{font-weight:900;font-stretch:115%;font-size:15px;color:var(--pino)}
 
-        header h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
+/* Pasos */
+.pasos{list-style:none;margin:0;padding:0;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));counter-reset:paso}
+.paso{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:22px;display:grid;gap:10px;align-content:start}
+.paso .circulo{width:36px;height:36px;border-radius:50%;background:var(--pino-oscuro);color:var(--lima);display:flex;align-items:center;justify-content:center;font-weight:800}
+.paso p{color:var(--muted)}
 
-        header h1 span { color: var(--accent); }
+/* Ciclo */
+.ciclo{background:#fff;border:1px solid var(--linea);border-radius:24px;padding:28px 20px;display:grid;gap:24px}
+.riel{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:relative;text-align:center}
+.riel::before{content:"";position:absolute;left:10%;right:10%;top:15px;height:4px;background:var(--pino-oscuro)}
+.riel li{position:relative;display:grid;justify-items:center;gap:8px;font-size:14px;font-weight:700;line-height:1.2}
+.riel li i{width:34px;height:34px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--c);background:var(--c)}
+.explica-estados{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.estado{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:start}
+.estado .pastilla{grid-row:span 2;color:#fff;font-size:13px;font-weight:800;padding:4px 9px;border-radius:8px;background:var(--c);white-space:nowrap}
+.estado p{color:var(--muted);font-size:15px;grid-column:2}
+.estado strong{grid-column:2;font-size:15px}
 
-        header .subtitle {
-            font-size: 1rem;
-            color: #bbb;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            display: block;
-        }
+/* Comunidad (verde) */
+.verde{position:relative;overflow:hidden;background:var(--pino);color:var(--papel)}
+.verde .arcos{left:-200px;bottom:-240px;width:620px;height:620px;color:var(--arco)}
+.verde .encabezado-bloque p{color:var(--sobre-pino)}
+.verde .etiqueta{color:var(--lima)}
+.tarjetas-verdes{position:relative;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.tv{background:rgba(30,48,42,.45);border-radius:22px;padding:24px;display:grid;gap:12px;align-content:start}
+.tv h3{font-size:24px;font-weight:900;font-stretch:112%}
+.tv p{color:var(--sobre-pino)}
+.votos{display:flex;gap:4px;height:10px}
+.votos span{flex:1;border-radius:5px;background:var(--lima)}
+.votos span.no{background:rgba(243,245,242,.25)}
 
-        /* Caja de "Empoderamiento" dentro del Header */
-        .intro-box {
-            max-width: 700px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.08);
-            padding: 30px;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-            text-align: center;
-        }
-        .intro-box h2 {
-            font-size: 1.5rem;
-            color: var(--white);
-            margin-bottom: 15px;
-        }
-        .intro-box p {
-            color: #ddd;
-            font-size: 1rem;
-            margin: 0;
-        }
+/* Categorías */
+.categorias{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.cat{display:flex;align-items:center;gap:12px;min-height:60px;padding:10px 14px;background:#fff;border:1.5px solid var(--linea-fuerte);border-radius:14px;font-weight:600}
+.cat svg{width:24px;height:24px;flex:none}
+.aviso{margin-top:18px;display:flex;gap:10px;align-items:flex-start;background:#fffbe0;border:2px solid #e8d46a;border-radius:16px;padding:14px 16px;font-size:15px}
 
-        /* --- ESTILOS DEL CONTENIDO (LIMPIO) --- */
-        
-        .section {
-            background: var(--white);
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        
-        .section h3 {
-            color: var(--primary);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            font-size: 1.3em;
-        }
+/* Técnica */
+.tecnica{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.tec{background:#fff;border:1px solid var(--linea);border-radius:20px;padding:22px;display:grid;gap:10px;align-content:start}
+.tec ul{margin:0;padding-left:18px;color:var(--muted);display:grid;gap:4px}
+.cifra{font-size:44px;font-weight:900;font-stretch:115%;line-height:1}
+.cifra small{font-size:18px;font-weight:700;font-stretch:100%}
 
-        /* Grid */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
+/* Equipo */
+.equipo{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.equipo span{border:2px solid var(--pino);border-radius:999px;padding:8px 18px;font-weight:700}
+.cierre{position:relative;overflow:hidden;background:var(--pino-oscuro);color:var(--papel);padding:64px 0;text-align:center}
+.cierre .envoltura{display:grid;justify-items:center;gap:18px}
+.cierre p{color:var(--sobre-pino);max-width:560px}
+footer{background:var(--pino-oscuro);color:#9fb1a8;font-size:14px;padding:0 0 32px;text-align:center}
+footer a{color:var(--sobre-pino)}
 
-        /* Tarjetas de Categorías */
-        .cat-card {
-            background: var(--light);
-            padding: 20px;
-            border-radius: 5px;
-            border-left: 5px solid var(--accent);
-        }
-        .cat-card h4 { color: var(--dark); margin-bottom: 5px; }
-
-        /* Tarjetas de Alcance (Oscuras) */
-        .scope-card {
-            background: var(--dark-card);
-            color: var(--white);
-            padding: 20px;
-            border-radius: 8px;
-            border-bottom: 4px solid var(--accent);
-        }
-        .scope-card h4 { color: var(--accent); margin-top: 0; margin-bottom: 10px; }
-        .scope-card p { font-size: 0.9em; color: #ccc; }
-
-        /* Lista de Impacto */
-        .custom-list { list-style: none; padding: 0; }
-        .custom-list li {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
-        }
-        .custom-list li::before {
-            content: "•";
-            color: var(--primary);
-            font-weight: bold;
-            font-size: 1.5em;
-            position: absolute;
-            left: 0;
-            top: -5px;
-        }
-
-        /* Equipo */
-        .team-box {
-            text-align: center;
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            margin-top: 40px;
-        }
-        .team-members span {
-            display: inline-block;
-            margin: 10px 15px;
-            padding: 8px 20px;
-            border: 1px solid var(--accent);
-            border-radius: 20px;
-            font-size: 0.95em;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            background-color: var(--dark);
-            color: #777;
-            margin-top: 40px;
-            font-size: 0.9em;
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.2rem; }
-            .section { padding: 25px; }
-        }
-    </style>
+@media (min-width:860px){
+  .portada{padding:72px 0 96px}
+  .ciclo{padding:36px 40px}
+}
+@media (max-width:520px){
+  .portada .arcos{right:-330px;top:-260px}
+  .riel li{font-size:12px}
+  .riel li i{width:28px;height:28px}
+  .riel::before{top:12px}
+  section.bloque{padding:48px 0}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1>Familia <span>Unida</span></h1>
-            <span class="subtitle">Sistema de Reportes Comunitarios</span>
-            
-            <div class="intro-box">
-                <h2>Empoderamiento Ciudadano</h2>
-                <p>Una solución tecnológica para reportar, visualizar y dar seguimiento a problemas comunitarios, fomentando la colaboración activa entre vecinos y autoridades.</p>
-            </div>
-        </div>
-    </header>
+<header class="barra verde">
+  <div class="envoltura">
+    <a class="marca" href="#inicio" aria-label="Familia Unida, inicio"><b aria-hidden="true">FAMILIA</b><span aria-hidden="true">unida</span></a>
+    <nav aria-label="Principal"><a href="https://main.d1tsolh0f84giv.amplifyapp.com">Abrir la app</a></nav>
+  </div>
+</header>
 
-    <div class="container">
-        
-        <div class="section">
-            <h3>Contexto y Problemática</h3>
-            <p>Muchas comunidades sufren de una desconexión con sus autoridades locales. Según estudios del BID, hasta un <strong>92% de los delitos no son reportados formalmente</strong>. "Familia Unida" busca reducir esta "cifra negra" ofreciendo un canal accesible y centralizado para gestionar incidencias, eliminando el subregistro y la desinformación vecinal.</p>
-        </div>
+<main id="inicio">
 
-        <div class="section">
-            <h3>Impacto Esperado</h3>
-            <p>Con la implementación de este sistema, buscamos transformar la gestión comunitaria:</p>
-            <ul class="custom-list">
-                <li><strong>Visibilidad Real:</strong> Sacar a la luz problemas recurrentes que hoy pasan desapercibidos por falta de un canal formal.</li>
-                <li><strong>Colaboración:</strong> Crear un espacio donde el ciudadano deja de ser espectador y se convierte en un agente activo de cambio.</li>
-                <li><strong>Centralización:</strong> Evitar la dispersión de información en chats informales, concentrando todo en una base de datos segura.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h3>Categorías de Reporte</h3>
-            <p style="margin-bottom: 20px;">El sistema permite clasificar incidencias en 5 áreas clave para la comunidad:</p>
-            <div class="grid-container">
-                <div class="cat-card"><h4>👮‍♂️ Seguridad Pública</h4><p>Reportes de crimen y vigilancia.</p></div>
-                <div class="cat-card"><h4>🐕 Maltrato Animal</h4><p>Atención a fauna urbana y mascotas.</p></div>
-                <div class="cat-card"><h4>🤝 Vulnerabilidad Social</h4><p>Apoyo a personas en situación de calle o riesgo.</p></div>
-                <div class="cat-card"><h4>🚑 Emergencias</h4><p>Situaciones de riesgo inmediato.</p></div>
-                <div class="cat-card"><h4>🌳 Medio Ambiente</h4><p>Saneamiento y cuidado ecológico.</p></div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Alcance del Proyecto</h3>
-            <p style="margin-bottom: 20px;">La aplicación "Familia Unida" abarca las siguientes funcionalidades técnicas y operativas:</p>
-            <div class="grid-container">
-                <div class="scope-card">
-                    <h4>Gestión de Usuarios</h4>
-                    <p>Registro, inicio de sesión seguro y manejo de perfiles únicos.</p>
-                </div>
-                <div class="scope-card">
-                    <h4>Ciclo de Reportes</h4>
-                    <p>Creación, visualización, búsqueda y cambio de estatus (Pendiente a Resuelto).</p>
-                </div>
-                <div class="scope-card">
-                    <h4>Interacción Social</h4>
-                    <p>Sistema de comentarios integrado para retroalimentación comunitaria en cada reporte.</p>
-                </div>
-                <div class="scope-card">
-                    <h4>Evidencia Visual</h4>
-                    <p>Capacidad de adjuntar imágenes como prueba en los reportes generados.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>Objetivos del Proyecto</h3>
-            <div class="grid-container">
-                <div>
-                    <h4 style="color: var(--primary);"> Objetivo General</h4>
-                    <p>Desarrollar una aplicación de escritorio colaborativa en Java y SQL Server que sirva como prototipo funcional para la gestión de incidencias, estableciendo las bases para futuras mejoras.</p>
-                </div>
-                <div>
-                    <h4 style="color: var(--primary);">Objetivos Técnicos</h4>
-                    <ul class="custom-list">
-                        <li>Implementar un sistema CRUD completo utilizando el patrón DAO para el acceso a datos.</li>
-                        <li>Garantizar la integridad de la información mediante una base de datos relacional SQL Server.</li>
-                        <li>Diseñar una interfaz gráfica intuitiva utilizando la librería Java Swing.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="team-box">
-            <h3 style="color: var(--accent); border:none; margin-bottom: 20px;">EQUIPO DE DESARROLLO</h3>
-            <div class="team-members">
-                <span>Natalia  Loza Arredondo</span>
-                <span>Diego Miguel Choza Suárez</span>
-                <span>Carolina López Parra</span>
-            </div>
-            <p style="margin-top: 30px; color: #aaa; font-size: 0.9em;">
-                Institución: UNIVA Universidad del Valle de Atemajac<br>
-                Curso: Diseño Orientado a Objetos - Noviembre 2025
-            </p>
-        </div>
-
+<section class="portada verde">
+  <svg class="arcos" viewBox="0 0 420 420" aria-hidden="true"><circle cx="210" cy="210" r="40"/><circle cx="210" cy="210" r="70"/><circle cx="210" cy="210" r="100"/><circle cx="210" cy="210" r="130"/><circle cx="210" cy="210" r="160"/><circle cx="210" cy="210" r="190"/></svg>
+  <div class="envoltura">
+    <span class="plumon" style="justify-self:start;font-size:20px">Finalista FECIJAL 2026</span>
+    <h1>LO QUE SE<br>REPORTA,<br>SE RESUELVE.</h1>
+    <p class="bajada">Familia Unida es una plataforma web para reportar baches, fugas, basura y otros problemas de tu colonia, ver en un mapa qué está pasando y confirmar entre vecinos si de verdad quedó resuelto.</p>
+    <div class="acciones">
+      <a class="boton boton-lima" href="https://main.d1tsolh0f84giv.amplifyapp.com">Abrir la app</a>
+      <a class="boton boton-borde" href="#como-funciona">Cómo funciona</a>
     </div>
+    <p class="datos-portada"><span>Piloto en <strong>Guadalajara y Zapopan</strong></span><span>Funciona desde el navegador del celular, sin instalar nada</span></p>
+  </div>
+</section>
 
-    <footer>
-        <p>&copy; 2025 Proyecto Familia Unida. Todos los derechos reservados.</p>
-    </footer>
+<section class="bloque" aria-labelledby="t-problema">
+  <div class="envoltura">
+    <div class="encabezado-bloque">
+      <span class="etiqueta">El problema</span>
+      <h2 id="t-problema">Reportar hoy es mandar un mensaje y no volver a saber nada.</h2>
+      <p>Los vecinos sí avisan, pero los reportes se pierden entre chats, llamadas y publicaciones en redes.</p>
+    </div>
+    <div class="problemas">
+      <div class="problema"><span class="num">01</span><h3>No se ve</h3><p>Nadie sabe si alguien más ya reportó el mismo bache, así que llegan cien avisos sueltos o ninguno.</p></div>
+      <div class="problema"><span class="num">02</span><h3>No se sigue</h3><p>Una vez enviado, el reporte desaparece: no hay forma pública de saber en qué va.</p></div>
+      <div class="problema"><span class="num">03</span><h3>No se comprueba</h3><p>Cuando un problema se marca como atendido, nadie confirma si de verdad quedó bien.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bloque" id="como-funciona" aria-labelledby="t-como" style="padding-top:0">
+  <div class="envoltura">
+    <div class="encabezado-bloque">
+      <span class="etiqueta">Cómo funciona</span>
+      <h2 id="t-como">Cuatro pasos, todos a la vista.</h2>
+    </div>
+    <ol class="pasos">
+      <li class="paso"><span class="circulo">1</span><h3>Reportas con foto</h3><p>Tomas hasta 3 fotos, marcas el lugar en el mapa (con tu GPS, buscando la dirección o con la ubicación guardada en la foto) y eliges la categoría.</p></li>
+      <li class="paso"><span class="circulo">2</span><h3>Los vecinos se suman</h3><p>Quien vive lo mismo toca “A mí también me afecta”. Si alguien intenta reportar lo mismo, la app le sugiere sumarse al reporte que ya existe.</p></li>
+      <li class="paso"><span class="circulo">3</span><h3>Se lleva al canal oficial</h3><p>Con un toque se envía por WhatsApp al canal del municipio (por ejemplo, GuaZap) y el folio que dan queda público en el reporte.</p></li>
+      <li class="paso"><span class="circulo">4</span><h3>La comunidad lo valida</h3><p>Cuando la autoridad sube la foto del trabajo terminado, los vecinos afectados votan si quedó. Si no, el reporte se reabre.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="bloque" aria-labelledby="t-ciclo" style="padding-top:0">
+  <div class="envoltura">
+    <div class="encabezado-bloque">
+      <span class="etiqueta">Seguimiento público</span>
+      <h2 id="t-ciclo">Cada reporte tiene un estado que todos pueden ver.</h2>
+      <p>Cada cambio queda registrado con fecha y hora. Así se puede medir cuánto tarda la atención y cuántos problemas se resuelven de verdad.</p>
+    </div>
+    <div class="ciclo">
+      <ol class="riel" aria-label="Estados del reporte, en orden">
+        <li style="--c:var(--abierto)"><i></i>Abierto</li>
+        <li style="--c:var(--canalizado)"><i></i>Canalizado</li>
+        <li style="--c:var(--atencion)"><i></i>En atención</li>
+        <li style="--c:var(--atendido)"><i></i>Atendido</li>
+        <li style="--c:var(--resuelto)"><i></i>Resuelto</li>
+      </ol>
+      <div class="explica-estados">
+        <div class="estado" style="--c:var(--abierto)"><span class="pastilla">Abierto</span><strong>Publicado en el mapa</strong><p>Ya se ve y los vecinos pueden sumarse.</p></div>
+        <div class="estado" style="--c:var(--canalizado)"><span class="pastilla">Canalizado</span><strong>Enviado al canal oficial</strong><p>Tiene folio del municipio a la vista.</p></div>
+        <div class="estado" style="--c:var(--atencion)"><span class="pastilla">En atención</span><strong>La autoridad lo tomó</strong><p>Solo cuentas verificadas del municipio pueden cambiarlo.</p></div>
+        <div class="estado" style="--c:var(--atendido)"><span class="pastilla">Atendido</span><strong>Hay evidencia del trabajo</strong><p>Foto de “después” y nota; falta el voto de los vecinos.</p></div>
+        <div class="estado" style="--c:var(--resuelto)"><span class="pastilla">Resuelto</span><strong>Confirmado por la comunidad</strong><p>La mayoría de los afectados dijo “sí, ya quedó”.</p></div>
+        <div class="estado" style="--c:var(--reabierto)"><span class="pastilla">Reabierto</span><strong>La comunidad dijo que no</strong><p>Vuelve a esperar atención y el tiempo sigue contando.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bloque verde" aria-labelledby="t-comunidad">
+  <svg class="arcos" viewBox="0 0 420 420" aria-hidden="true"><circle cx="210" cy="210" r="40"/><circle cx="210" cy="210" r="70"/><circle cx="210" cy="210" r="100"/><circle cx="210" cy="210" r="130"/><circle cx="210" cy="210" r="160"/><circle cx="210" cy="210" r="190"/></svg>
+  <div class="envoltura">
+    <div class="encabezado-bloque" style="position:relative">
+      <span class="etiqueta">Lo que la hace diferente</span>
+      <h2 id="t-comunidad">La comunidad decide qué es urgente y qué quedó resuelto.</h2>
+    </div>
+    <div class="tarjetas-verdes">
+      <div class="tv">
+        <span class="plumon" style="justify-self:start;font-size:18px">¡Prioridad comunitaria!</span>
+        <h3>Prioridad por vecinos, no por likes</h3>
+        <p>Cuando un reporte alcanza 25 vecinos afectados se marca como prioridad comunitaria y sube en la lista de su zona. El orden depende de a cuántos afecta y desde cuándo, no de lo popular.</p>
+      </div>
+      <div class="tv">
+        <h3>¿QUEDÓ RESUELTO?</h3>
+        <p>Solo votan quienes marcaron “Me afecta” antes del cierre, y la autoridad no puede votar. Se decide por mayoría.</p>
+        <div class="votos" aria-hidden="true"><span></span><span></span><span class="no"></span></div>
+      </div>
+      <div class="tv">
+        <h3>Transparencia abierta</h3>
+        <p>Un tablero público muestra cuántos reportes hay por categoría y municipio, cuántos se resolvieron y validaron, el tiempo típico de atención y cuántos cierres rechazó la comunidad. Los datos se pueden descargar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bloque" aria-labelledby="t-categorias">
+  <div class="envoltura">
+    <div class="encabezado-bloque">
+      <span class="etiqueta">Qué se puede reportar</span>
+      <h2 id="t-categorias">Problemas del espacio público.</h2>
+      <p>Se reportan problemas, no personas: la app pide evitar rostros y placas, y borra los datos ocultos de las fotos antes de publicarlas.</p>
+    </div>
+    <div class="categorias">
+      <div class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21 9 3M19 21 15 3"/><path d="m12.5 8-1.5 3 2 1.5-1.5 3.5"/></svg>Baches y vialidades</div>
+      <div class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.8.6 1.1 1.4 1.1 2.2h5c0-.8.3-1.6 1.1-2.2A6 6 0 0 0 12 3Z"/></svg>Alumbrado público</div>
+      <div class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 3h4M6 7l1 14h10l1-14"/></svg>Basura</div>
+      <div class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11Z"/></svg>Agua y fugas</div>
+      <div class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M7 9h10M5.5 12h13M7 15h10"/></svg>Coladeras</div>
+      <div class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M12 2 6.5 9.5H9L5 15h14l-4-5.5h2.5Z"/></svg>Parques y árboles</div>
+      <div class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="10" width="8" height="11" rx="1.5"/><path d="M9 10V7h4v3M15 5h.01M18 3h.01M18 7h.01"/></svg>Grafiti</div>
+      <div class="cat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="10" r="1.8"/><circle cx="9.5" cy="5.5" r="1.8"/><circle cx="14.5" cy="5.5" r="1.8"/><circle cx="18.5" cy="10" r="1.8"/><path d="M12 11c-3 0-5.5 4-5.5 6.5 0 1.7 1.3 2.5 2.7 2.5 1 0 1.8-.5 2.8-.5s1.8.5 2.8.5c1.4 0 2.7-.8 2.7-2.5C17.5 15 15 11 12 11Z"/></svg>Maltrato animal en vía pública</div>
+    </div>
+    <p class="aviso"><span class="diamante" style="margin-top:5px"></span><span><strong>No es para emergencias.</strong> Si hay riesgo para alguien, llama al 911.</span></p>
+  </div>
+</section>
+
+<section class="bloque" aria-labelledby="t-tecnica" style="padding-top:0">
+  <div class="envoltura">
+    <div class="encabezado-bloque">
+      <span class="etiqueta">Cómo está hecha</span>
+      <h2 id="t-tecnica">Una app real, en la nube y medida.</h2>
+    </div>
+    <div class="tecnica">
+      <div class="tec">
+        <h3>Tecnología</h3>
+        <ul>
+          <li>Next.js y TypeScript, diseño responsivo pensado primero para celular</li>
+          <li>AWS Amplify (publicación automática), RDS PostgreSQL con PostGIS para búsquedas por distancia, y S3 para las fotos</li>
+          <li>Google Maps para el mapa y la búsqueda de direcciones</li>
+        </ul>
+      </div>
+      <div class="tec">
+        <h3>Seguridad y privacidad</h3>
+        <ul>
+          <li>Contraseñas guardadas con bcrypt (nunca en texto) y sesiones firmadas</li>
+          <li>Permisos por rol revisados en el servidor: vecino, moderador, autoridad del municipio y administrador</li>
+          <li>Fotos sin metadatos y nombre del autor oculto: se publica como “Vecino de” la zona</li>
+        </ul>
+      </div>
+      <div class="tec">
+        <h3>Prueba de carga</h3>
+        <p class="cifra">100 <small>usuarios a la vez</small></p>
+        <p style="color:var(--muted)">0 % de errores y 95 % de las respuestas en menos de 0.19 s, medido con k6 sobre la versión publicada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bloque" aria-labelledby="t-equipo" style="padding-top:0">
+  <div class="envoltura">
+    <div class="encabezado-bloque" style="margin-bottom:12px">
+      <span class="etiqueta">Equipo</span>
+      <h2 id="t-equipo">Hecho en Guadalajara.</h2>
+      <p>Plataforma web georreferenciada para el reporte, seguimiento y validación comunitaria de problemas urbanos en Guadalajara y Zapopan. FECIJAL 2026, área de Sistemas Informáticos.</p>
+    </div>
+    <div class="equipo">
+      <span>Diego Miguel Choza Suárez</span>
+      <span>Natalia Giselle Loza Arredondo</span>
+      <span>Carolina López Parra</span>
+    </div>
+  </div>
+</section>
+
+<section class="cierre verde" aria-labelledby="t-cierre">
+  <div class="envoltura">
+    <span class="plumon" style="font-size:22px">Pruébala</span>
+    <h2 id="t-cierre">¿Hay un bache en tu calle?</h2>
+    <p>Abre la app desde tu celular, busca tu colonia en el mapa y súmate a lo que ya reportaron tus vecinos.</p>
+    <a class="boton boton-lima" href="https://main.d1tsolh0f84giv.amplifyapp.com">Abrir Familia Unida</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="envoltura">
+    <p>Familia Unida, 2026. Proyecto finalista de FECIJAL 2026.</p>
+  </div>
+</footer>
 
 </body>
 </html>
